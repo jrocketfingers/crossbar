@@ -1157,7 +1157,7 @@ class RouterWorkerSession(NativeWorkerSession):
         elif path_config['type'] == 'upload':
 
             upload_directory = os.path.abspath(os.path.join(self.config.extra.cbdir, path_config['directory']))
-            upload_directory = upload_directory.encode('ascii', 'ignore')  # http://stackoverflow.com/a/20433918/884770
+            #upload_directory = upload_directory.encode('ascii', 'ignore')  # http://stackoverflow.com/a/20433918/884770
             if not os.path.isdir(upload_directory):
                 emsg = "configured upload directory '{}' in file upload resource isn't a directory".format(upload_directory)
                 self.log.error(emsg)
@@ -1165,7 +1165,7 @@ class RouterWorkerSession(NativeWorkerSession):
 
             if 'temp_directory' in path_config:
                 temp_directory = os.path.abspath(os.path.join(self.config.extra.cbdir, path_config['temp_directory']))
-                temp_directory = temp_directory.encode('ascii', 'ignore')  # http://stackoverflow.com/a/20433918/884770
+                #temp_directory = temp_directory.encode('ascii', 'ignore')  # http://stackoverflow.com/a/20433918/884770
             else:
                 temp_directory = os.path.abspath(tempfile.gettempdir())
                 temp_directory = os.path.join(temp_directory, 'crossbar-uploads')
